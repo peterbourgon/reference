@@ -6,6 +6,8 @@ presented to developers as a way to structure new Go kit applications,
 serving as a common organizational point of departure for new
 applications.
 
+## Needs and wants
+
 * The app should expose URLs that are familiar to programmers with
 experience with REST APIs.  This means different things to different
 people, but generally URLs should telegraph the thing being talked
@@ -21,8 +23,8 @@ previous requirement around URL tokens.
 * The application should demonstrate how to use a configurable
 security middleware.  OAuth2 would be a reasonable choice to
 demonstrate.  If HTTP verbs and URL paths both determine routing
-per above, demonstrating how OAuth2 scopes can be applied to specific
-route is desirable.
+per above, demonstrating how OAuth2 scopes can be applied to a
+specific route is desirable.
 
 * The application should have the ability to produce log records
 that are consistent with an organization's existing or expected
