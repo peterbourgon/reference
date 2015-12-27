@@ -16,7 +16,7 @@ func inmemFixture(t *testing.T) UserService {
 	return s
 }
 
-func TestCreate(t *testing.T) {
+func TestInmemCreate(t *testing.T) {
 	s := inmemFixture(t)
 	if want, have := error(nil), s.Create("alterate@email.address", "Bar Baz", "abcdefg"); want != have {
 		t.Errorf("want %v, have %v", want, have)
@@ -26,7 +26,7 @@ func TestCreate(t *testing.T) {
 	}
 }
 
-func TestGet(t *testing.T) {
+func TestInmemGet(t *testing.T) {
 	s := inmemFixture(t)
 	u, err := s.Get(emailAddress)
 	if err != nil {
@@ -40,7 +40,7 @@ func TestGet(t *testing.T) {
 	}
 }
 
-func TestDelete(t *testing.T) {
+func TestInmemDelete(t *testing.T) {
 	s := inmemFixture(t)
 	if want, have := error(nil), s.Delete(emailAddress); want != have {
 		t.Errorf("want %v, have %v", want, have)

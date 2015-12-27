@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-type inmemService struct {
+type inmemUserService struct {
 	mtx   sync.Mutex
 	users map[string]inmemUser
 }
@@ -17,12 +17,12 @@ type inmemUser struct {
 }
 
 func newInmemUserService() UserService {
-	return &inmemService{
+	return &inmemUserService{
 		users: map[string]inmemUser{},
 	}
 }
 
-func (s *inmemService) Create(emailAddress, realName, plaintextPassword string) error {
+func (s *inmemUserService) Create(emailAddress, realName, plaintextPassword string) error {
 	s.mtx.Lock()
 	defer s.mtx.Unlock()
 
@@ -44,7 +44,7 @@ func (s *inmemService) Create(emailAddress, realName, plaintextPassword string) 
 	return nil
 }
 
-func (s *inmemService) Get(emailAddress string) (User, error) {
+func (s *inmemUserService) Get(emailAddress string) (User, error) {
 	s.mtx.Lock()
 	defer s.mtx.Unlock()
 
@@ -56,7 +56,7 @@ func (s *inmemService) Get(emailAddress string) (User, error) {
 	return u.User, nil
 }
 
-func (s *inmemService) Delete(emailAddress string) error {
+func (s *inmemUserService) Delete(emailAddress string) error {
 	s.mtx.Lock()
 	defer s.mtx.Unlock()
 

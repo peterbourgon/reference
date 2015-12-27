@@ -40,4 +40,11 @@ var (
 	// ErrEmailAddressNotFound is returned when mutations are applied to a
 	// user account that doesn't exist.
 	ErrEmailAddressNotFound = errors.New("email address not found")
+
+	// ErrEmailAddressNotProvided is returned by methods that require an email
+	// address when the email address isn't provided.
+	ErrEmailAddressNotProvided = errors.New("email address not provided")
+
+	// ErrBadPassword is returned whenever an invalid password is provided.
+	ErrBadPassword = errors.New("bad password")
 )
